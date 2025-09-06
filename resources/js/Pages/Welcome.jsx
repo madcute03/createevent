@@ -89,29 +89,23 @@ export default function Welcome({ events = [], canLogin = false, canRegister = f
                                             By {event.coordinator_name} | {event.event_date}
                                         </p>
 
-                                        {/* Display all images */}
-                                        {event.images && event.images.length > 0 && (
-                                            <div className="flex flex-wrap gap-2 mt-3">
-                                                {event.images.map(img => (
-                                                    <img
-                                                        key={img.id}
-                                                        src={`/storage/${img.image_path}`}
-                                                        alt={event.title}
-                                                        className="w-24 h-24 object-cover rounded-lg ring-1 ring-blue-800/40"
-                                                    />
-                                                ))}
-                                            </div>
-                                        )}
-
-                                        {event.is_done && (
-                                            <p className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-green-400">
-                                                <span>✓</span> Done
-                                            </p>
-                                        )}
+                                {/* Display all images */}
+                                {event.images && event.images.length > 0 && (
+                                    <div className="flex flex-wrap gap-2 mt-2">
+                                        {event.images.map(img => (
+                                            <img 
+                                                key={img.id} 
+                                                src={`/storage/${img.image_path}`} 
+                                                alt={event.title} 
+                                                className="w-24 h-24 object-cover rounded" 
+                                            />
+                                        ))}
                                     </div>
-                                </Link>
-                            ))}
-                        </div>
+                                )}
+
+                                {event.is_done && <p className="text-green-600 font-bold mt-2">✓ Done</p>}
+                            </Link>
+                        ))
                     )}
                 </div>
             </div>
